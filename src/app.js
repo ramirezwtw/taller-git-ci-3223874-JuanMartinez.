@@ -1,17 +1,14 @@
+// src/app.js
+
 function suma(a, b) {
   return a + b;
 }
 
-const lista = document.getElementById("lista");
+// Asegúrate de que solo exportas la función de negocio
+module.exports = {
+  suma,
+};
 
-function agregarItem(texto) {
-  const nuevoItem = document.createElement("li");
-  nuevoItem.textContent = texto;
-  lista.appendChild(nuevoItem);
-}
-
-document.getElementById("agregarBtn").addEventListener("click", () => {
-  agregarItem(`Ítem agregado a las ${new Date().toLocaleTimeString()}`);
-});
-
-console.log("App lista");
+// Elimina o comenta las líneas que causan el error:
+// const lista = document.getElementById("lista");
+// [ ... cualquier otra línea que use document o window ... ]
