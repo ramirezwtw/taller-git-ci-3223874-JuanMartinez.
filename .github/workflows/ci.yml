@@ -3,30 +3,30 @@ name: CI (Formato y Pruebas)
 
 on:
   push:
-    branches: [ main, feat/** ]
+    branches: [main, feat/**]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   check-format-and-test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Usar una versión LTS
+          node-version: "20" # Usar una versión LTS
 
       - name: Install dependencies
         run: npm install
-        
+
       # --- Job de Formato (Prettier) ---
       - name: Check Code Format with Prettier
         run: npx prettier . --check
-      
+
       # --- Job de Pruebas (Node.js Test Runner) ---
       - name: Run Tests
         # El test runner de Node.js corre archivos *.test.js por defecto en el directorio 'tests'
